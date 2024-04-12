@@ -1,8 +1,21 @@
-# React + Vite
+Three pages
+--+Home-Page
+--+Shopping- Page
+--+Checkout-Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
++Navigate between these pages with react router
 
-Currently, two official plugins are available:
++Home-page can have anything
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
++shopping-page to display items fetched from an api
+--should display a shopping cart button which shows the number of items
+--+when clicked you can go to the cart to checkout and pay
+
++Individual card elements for items
+--+Display an input field on it, which lets a user manually type in how many items they want to buy.
+--+add an increment and decrement button next to it for fine-tuning
+--+display a title for each product as well as an “Add To Cart” button.
+
++once a user has submitted their order, the amount on the cart itself should adjust accordingly.
+
++Tests...lots of tests.
