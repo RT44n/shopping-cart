@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ShoppingPage from "../components/ShoppingPage";
+import ShoppingPage from "../src/components/ShoppingPage";
 
 describe("App component", () => {
   it("renders correct heading", () => {
