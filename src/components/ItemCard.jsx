@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
-import "../src/styles/itemCard.css";
+import "../styles/itemCard.css";
 
 const ItemCard = ({ itemName, itemImage }) => {
   return (
-    <div className="item-card">
-      <img src={itemImage} alt={itemName} />
+    <div className="itemCard">
+      <img className="itemImage" src={itemImage} alt={itemName} />
       <p>{itemName}</p>
       <input type="number" />
       <button>Add to Cart</button>

@@ -1,0 +1,16 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.itemCardHolder {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr); 
+    grid-gap: 10px; 
+    padding: 10px;
+    
+  }
+  
+  .itemCard {
+    grid-column: span 4; 
+  }
