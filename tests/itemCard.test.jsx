@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import ItemCard from "./ItemCard";
+import ItemCard from "../src/components/ItemCard";
+import { describe, expect, vi } from "vitest";
 
 describe("ItemCard", () => {
   test("renders correctly with valid props", () => {
@@ -17,21 +18,31 @@ describe("ItemCard", () => {
 
   test("throws error with missing itemName prop", () => {
     const itemImage = "test.jpg";
+    const consoleErrorSpy = vi.spyOn(console, "error");
 
-    expect(() => {
-      render(<ItemCard itemImage={itemImage} />);
-    }).toThrowError(
-      "Failed prop type: The prop `itemName` is marked as required"
+    render(<ItemCard itemImage={itemImage} />);
+    expect(consoleErrorSpy).toHaveBeenCalled();
+    expect(consoleErrorSpy.mock.calls[0][2]).toContain(
+      "The prop `itemName` is marked as required in `ItemCard`, but its value is `undefined`"
     );
+    consoleErrorSpy.mockRestore();
   });
-
   test("throws error with missing itemImage prop", () => {
     const itemName = "Test Item";
+    // Spy on console.error
+    const consoleErrorSpy = vi.spyOn(console, "error");
 
-    expect(() => {
-      render(<ItemCard itemName={itemName} />);
-    }).toThrowError(
-      "Failed prop type: The prop `itemImage` is marked as required"
+    // Render ItemCard without itemImage prop
+    render(<ItemCard itemName={itemName} />);
+
+    // Check if console.error was called with the expected message
+
+    expect(consoleErrorSpy).toHaveBeenCalled();
+    expect(consoleErrorSpy.mock.calls[0][2]).toContain(
+      "The prop `itemImage` is marked as required"
     );
+
+    // Restore the original console.error after the test
+    consoleErrorSpy.mockRestore();
   });
 });
