@@ -1,14 +1,10 @@
-
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
     <div>
-      <Link to="/ShoppingPage"
-      >Shopping Page</Link>
-      <Link to= "/HomePage">Home</Link>
-      <Link to= "/CheckoutPage">Checkout</Link>
-
+      <HomePage></HomePage>
     </div>
   );
 }

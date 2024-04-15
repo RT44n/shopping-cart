@@ -5,8 +5,9 @@ const ItemCard = ({ itemName, itemImage }) => {
   return (
     <div className="itemCard">
       <img className="itemImage" src={itemImage} alt={itemName} />
-      <p>{itemName}</p>
-      <input type="number" />
+      <p className="text-sky-400">{itemName}</p>
+      <label htmlFor="itemQuantity">Quantity</label>
+      <input className="bg-gray-100" type="number" />
       <button>Add to Cart</button>
     </div>
   );

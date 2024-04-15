@@ -6,6 +6,7 @@ export default {
     "./src/components/HomePage.jsx",
     "./src/components/ItemCard.jsx",
     "./src/components/ShoppingPage.jsx",
+    "./index.html",
   ],
   theme: {
     extend: {},
