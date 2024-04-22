@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 import getItemsData from "./getItemsFromAPI";
-import { Link } from "react-router-dom";
+
+import NavBar from "./NavBar";
 
 const ShoppingPage = () => {
   const [itemData, setItemData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -30,12 +32,17 @@ const ShoppingPage = () => {
     }
   };
 
+  const addToCart = (itemName) => {
+    const selectedItem = itemData.find((item) => item.name === itemName);
+    setCartData([...cartData, selectedItem]);
+    console.log(cartData);
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <nav>
-        <Link to="/HomePage">Home</Link>
-      </nav>
+      <NavBar></NavBar>
       <h1 className="text-3xl font-bold mb-4">Shopping Page</h1>
+
       {loading ? (
         <div className="text-center">Loading...</div>
       ) : error ? (
@@ -49,6 +56,8 @@ const ShoppingPage = () => {
               key={item.name}
               itemName={item.name}
               itemImage={item.image}
+              itemPrice={item.price}
+              addToCart={addToCart}
             />
           ))}
         </div>
