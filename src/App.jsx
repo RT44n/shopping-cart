@@ -106,6 +106,7 @@ function App() {
                   alt=""
                   className="ml-4 h-6 w-6"
                 />
+                Checkout
               </Link>
             </li>
           </ul>
