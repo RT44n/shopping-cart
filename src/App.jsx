@@ -65,14 +65,21 @@ function App() {
     }
   };
 
+  const checkout = () => {
+    alert(
+      "Your orders have been placed. You will not recieve your items. Thank you for shopping with us!"
+    );
+    setCart([]);
+  };
+
   return (
-    <>
-      <header className="flex justify-between items-center bg-orange-600">
-        <div className="flex items-center">
+    <div className="home">
+      <header className=" header flex justify-between items-center">
+        <div className="flex items-center logo">
           <h1 className="text-3xl font-bold text-black ml-2">RT44nKart</h1>
         </div>
-        <nav className="">
-          <ul className="flex justify-between items-center flex-row px-4 py-2">
+        <nav>
+          <ul className="flex justify-between items-center flex-row px-4 py-2 nav">
             <li className="px-16 py-16">
               <Link
                 to="/"
@@ -92,7 +99,7 @@ function App() {
             <li className="px-4">
               <Link
                 to="/CheckoutPage"
-                className="text-black flex items-center hover:text-gray-200 transition duration-300"
+                className="text-black flex items-center text-3xl"
               >
                 <img
                   src="./src/assets/icons8-shopping-cart-50.png"
@@ -106,9 +113,17 @@ function App() {
       </header>
 
       <Outlet
-        context={{ cart, updateCart, itemData, loading, error, removeFromCart }}
+        context={{
+          cart,
+          updateCart,
+          itemData,
+          loading,
+          error,
+          removeFromCart,
+          checkout,
+        }}
       />
-    </>
+    </div>
   );
 }
 
