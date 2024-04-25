@@ -37,6 +37,11 @@ function App() {
     console.log(cart);
   }
 
+  const removeFromCart = (itemId) => {
+    const updatedCart = cart.filter((item) => item.id !== itemId);
+    setCart(updatedCart);
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -63,24 +68,19 @@ function App() {
     <>
       <header className="bg-orange-600">
         <nav className="flex justify-between items-center px-4 py-2">
-          <ul className="flex">
-            <li>
-              <Link
-                to="/ShoppingPage"
-                className="text-black hover:text-gray-200 transition duration-300"
-              >
-                Shop
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                className="text-black hover:text-gray-200 transition duration-300 ml-4"
-              >
-                Home
-              </Link>
-            </li>
-          </ul>
+          <Link
+            to="/"
+            className="text-black hover:text-gray-200 transition duration-300 ml-4"
+          >
+            Home
+          </Link>
+          <Link
+            to="/ShoppingPage"
+            className="text-black hover:text-gray-200 transition duration-300"
+          >
+            Shop
+          </Link>
+
           <Link
             to="/CheckoutPage"
             className="text-black flex items-center hover:text-gray-200 transition duration-300"
@@ -94,7 +94,9 @@ function App() {
         </nav>
       </header>
 
-      <Outlet context={{ cart, updateCart, itemData, loading, error }} />
+      <Outlet
+        context={{ cart, updateCart, itemData, loading, error, removeFromCart }}
+      />
     </>
   );
 }
