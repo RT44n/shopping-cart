@@ -48,7 +48,7 @@ const CheckoutPage = () => {
                     >
                       <img
                         className="w-5"
-                        src="src/assets/close-button-svgrepo-com.svg"
+                        src="./src/components/close-button-svgrepo-com.svg"
                         alt=""
                       />
                     </button>
@@ -61,15 +61,15 @@ const CheckoutPage = () => {
             <h2 className="text-xl font-semibold mb-2">Total</h2>
             <p className="text-gray-700">Total Price: ${calculateTotal()}</p>
           </div>
+          <button
+            onClick={checkout}
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline block w-full sm:w-auto"
+          >
+            Checkout!
+          </button>
         </div>
       )}
-      <button
-        onClick={checkout}
-        type="submit"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline block w-full sm:w-auto"
-      >
-        Checkout!
-      </button>
     </div>
   );
 };

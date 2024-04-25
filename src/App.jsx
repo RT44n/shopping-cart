@@ -102,7 +102,7 @@ function App() {
                 className="text-black flex items-center text-3xl"
               >
                 <img
-                  src="./src/assets/icons8-shopping-cart-50.png"
+                  src="./src/components/icons8-shopping-cart-50.png"
                   alt=""
                   className="ml-4 h-6 w-6"
                 />
