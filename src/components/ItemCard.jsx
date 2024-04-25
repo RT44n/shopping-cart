@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/itemCard.css";
 
 const ItemCard = ({ itemName, itemImage, itemPrice, addToCart }) => {
-  const [quantity, setQuantity] = useState(1); // State to hold the quantity
+  const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = () => {
+    if (quantity <= 0) {
+      alert("quantity is zero");
+      return;
+    }
     addToCart(itemName, quantity, itemPrice);
   };
 
-  // Function to handle quantity change
   const handleQuantityChange = (event) => {
-    const newQuantity = parseInt(event.target.value, 10); // Parse input value to integer
-    setQuantity(newQuantity); // Update quantity state
+    const newQuantity = parseInt(event.target.value, 10);
+    if (newQuantity < 0) return;
+    setQuantity(newQuantity);
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import getItemsData from "./components/getItemsFromAPI";
@@ -18,22 +18,23 @@ function App() {
 
     const existingItemIndex = cart.findIndex((item) => item.id === itemId);
     console.log(existingItemIndex);
+
     if (existingItemIndex !== -1) {
-      const updatedCart = [...cart];
-      updatedCart[existingItemIndex].quantity += quantity;
+      const updatedCart = cart.map((item, index) => {
+        if (index === existingItemIndex) {
+          return {
+            ...item,
+            quantity: item.quantity + quantity,
+          };
+        }
+        return item;
+      });
+
       setCart(updatedCart);
     } else {
       setCart([...cart, newCartItem]);
     }
     console.log(cart);
-  }
-
-  function cartTotal() {
-    let total = 0;
-    for (const item of cart) {
-      total += Number(item.quantity);
-    }
-    return total;
   }
 
   useEffect(() => {
@@ -84,7 +85,6 @@ function App() {
             to="/CheckoutPage"
             className="text-black flex items-center hover:text-gray-200 transition duration-300"
           >
-            Checkout
             <img
               src="./src/assets/icons8-shopping-cart-50.png"
               alt=""
