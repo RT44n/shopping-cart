@@ -13,7 +13,7 @@ const CheckoutPage = () => {
         <>
           <p className="text-4xl">Your cart is empty!</p>
           <p>
-            Your Shopping Cart lives to serve. You can freey place and remove
+            Your Shopping Cart lives to serve. You can freely place and remove
             items, move them to Buy Later. Continue shopping on the
             <Link className="text-blue-600" to="/ShoppingPage">
               shopping page.

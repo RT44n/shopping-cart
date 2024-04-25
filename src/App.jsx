@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import getItemsData from "./components/getItemsFromAPI";
+import "./styles/app.css";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -66,31 +67,41 @@ function App() {
 
   return (
     <>
-      <header className="bg-orange-600">
-        <nav className="flex justify-between items-center px-4 py-2">
-          <Link
-            to="/"
-            className="text-black hover:text-gray-200 transition duration-300 ml-4"
-          >
-            Home
-          </Link>
-          <Link
-            to="/ShoppingPage"
-            className="text-black hover:text-gray-200 transition duration-300"
-          >
-            Shop
-          </Link>
-
-          <Link
-            to="/CheckoutPage"
-            className="text-black flex items-center hover:text-gray-200 transition duration-300"
-          >
-            <img
-              src="./src/assets/icons8-shopping-cart-50.png"
-              alt=""
-              className="ml-4 h-6 w-6"
-            />
-          </Link>
+      <header className="flex justify-between items-center bg-orange-600">
+        <div className="flex items-center">
+          <h1 className="text-3xl font-bold text-black ml-2">RT44nKart</h1>
+        </div>
+        <nav className="">
+          <ul className="flex justify-between items-center flex-row px-4 py-2">
+            <li className="px-16 py-16">
+              <Link
+                to="/"
+                className="text-black hover:text-gray-200 transition duration-300 ml-4"
+              >
+                Home
+              </Link>
+            </li>
+            <li className="px-4">
+              <Link
+                to="/ShoppingPage"
+                className="text-black hover:text-gray-200 transition duration-300"
+              >
+                Shop
+              </Link>
+            </li>
+            <li className="px-4">
+              <Link
+                to="/CheckoutPage"
+                className="text-black flex items-center hover:text-gray-200 transition duration-300"
+              >
+                <img
+                  src="./src/assets/icons8-shopping-cart-50.png"
+                  alt=""
+                  className="ml-4 h-6 w-6"
+                />
+              </Link>
+            </li>
+          </ul>
         </nav>
       </header>
 
