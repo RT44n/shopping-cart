@@ -51,6 +51,7 @@ const CheckoutPage = () => {
                         src="./src/components/close-button-svgrepo-com.svg"
                         alt=""
                       />
+                      Cancel
                     </button>
                   </div>
                 </li>
