@@ -1,46 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import ItemCard from "./ItemCard";
-import getItemsData from "./getItemsFromAPI";
-
-import NavBar from "./NavBar";
 
 const ShoppingPage = () => {
-  const [itemData, setItemData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [cartData, setCartData] = useState([]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const data = await getItemsData();
-      const updatedData = data.map((item) => ({
-        ...item,
-        status: false,
-      }));
-      setItemData(updatedData);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching Item data:", error);
-      setError(
-        "Error fetching data. Please check your internet connection and try again."
-      );
-      setLoading(false);
-    }
-  };
-
-  const addToCart = (itemName) => {
-    const selectedItem = itemData.find((item) => item.name === itemName);
-    setCartData([...cartData, selectedItem]);
-    console.log(cartData);
-  };
-
+  const { loading, error, itemData, updateCart } = useOutletContext();
   return (
     <div className="container mx-auto px-4 py-8">
-      <NavBar></NavBar>
       <h1 className="text-3xl font-bold mb-4">Shopping Page</h1>
 
       {loading ? (
@@ -57,7 +21,7 @@ const ShoppingPage = () => {
               itemName={item.name}
               itemImage={item.image}
               itemPrice={item.price}
-              addToCart={addToCart}
+              addToCart={updateCart}
             />
           ))}
         </div>

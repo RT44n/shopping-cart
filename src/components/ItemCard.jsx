@@ -1,9 +1,18 @@
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/itemCard.css";
 
 const ItemCard = ({ itemName, itemImage, itemPrice, addToCart }) => {
+  const [quantity, setQuantity] = useState(1); // State to hold the quantity
+
   const handleAddToCart = () => {
-    addToCart(itemName);
+    addToCart(itemName, quantity, itemPrice);
+  };
+
+  // Function to handle quantity change
+  const handleQuantityChange = (event) => {
+    const newQuantity = parseInt(event.target.value, 10); // Parse input value to integer
+    setQuantity(newQuantity); // Update quantity state
   };
 
   return (
@@ -18,16 +27,20 @@ const ItemCard = ({ itemName, itemImage, itemPrice, addToCart }) => {
       </div>
       <div>
         <p className="text-gray-700 mb-2">Price: ${itemPrice}</p>
-        <label htmlFor="itemQuantity" className="block text-gray-700"></label>
+        <label htmlFor="itemQuantity" className="block text-gray-700">
+          Quantity:
+        </label>
         <input
           id="itemQuantity"
           className="bg-gray-100 border border-gray-300 rounded-md py-2 px-4 mb-2 w-full"
           type="number"
           placeholder="Quantity"
+          value={quantity}
+          onChange={handleQuantityChange}
         />
         <div className="flex justify-center">
           <button
-            onClick={handleAddToCart} // Use handleAddToCart function
+            onClick={handleAddToCart}
             className="bg-sky-500 text-white py-2 px-4 rounded-md hover:bg-sky-600"
           >
             Add to Cart

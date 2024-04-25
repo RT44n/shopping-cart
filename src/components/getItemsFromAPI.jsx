@@ -14,6 +14,8 @@ const getItemsData = async () => {
         image: itemData[i].image,
 
         rating: itemData[i].rating,
+
+        quantity: 0,
       });
     return itemArray;
   } catch (error) {
