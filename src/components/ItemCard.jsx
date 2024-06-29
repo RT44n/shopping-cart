@@ -27,13 +27,11 @@ const ItemCard = ({ itemName, itemImage, itemPrice, addToCart }) => {
           src={itemImage}
           alt={itemName}
         />
-        <p className="text-sky-400 text-lg font-bold mb-2">{itemName}</p>
+        <p className="text-gray-950 text-lg font-bold mb-2">{itemName}</p>
       </div>
-      <div>
-        <p className="text-gray-700 mb-2">Price: ${itemPrice}</p>
-        <label htmlFor="itemQuantity" className="block text-gray-700">
-          Quantity:
-        </label>
+      <div className="flex flex-col justify-center items-center ">
+        <p className="text-gray-950 text-3xl mb-2"> ${itemPrice}</p>
+        <label htmlFor="itemQuantity" className="block text-gray-700"></label>
         <input
           id="itemQuantity"
           className="bg-gray-100 border border-gray-300 rounded-md py-2 px-4 mb-2 w-full"
@@ -45,7 +43,7 @@ const ItemCard = ({ itemName, itemImage, itemPrice, addToCart }) => {
         <div className="flex justify-center">
           <button
             onClick={handleAddToCart}
-            className="bg-sky-500 text-white py-2 px-4 rounded-md hover:bg-sky-600"
+            className="bg-gray-950 text-white py-2 px-4 rounded-md hover:bg-gray-600"
           >
             Add to Cart
           </button>

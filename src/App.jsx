@@ -9,6 +9,7 @@ function App() {
   const [itemData, setItemData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [itemNumber, setItemNumber] = useState(0);
 
   function updateCart(itemId, quantity, price) {
     const newCartItem = {
@@ -18,7 +19,6 @@ function App() {
     };
 
     const existingItemIndex = cart.findIndex((item) => item.id === itemId);
-    console.log(existingItemIndex);
 
     if (existingItemIndex !== -1) {
       const updatedCart = cart.map((item, index) => {
@@ -34,8 +34,8 @@ function App() {
       setCart(updatedCart);
     } else {
       setCart([...cart, newCartItem]);
+      setItemNumber(itemNumber + 1);
     }
-    console.log(cart);
   }
 
   const removeFromCart = (itemId) => {
@@ -80,7 +80,7 @@ function App() {
         </div>
         <nav>
           <ul className="flex justify-between items-center flex-row px-4 py-2 nav">
-            <li className="px-16 py-16">
+            <li className="px-4 text-2xl font-bold">
               <Link
                 to="/"
                 className="text-black hover:text-gray-200 transition duration-300 ml-4"
@@ -88,7 +88,7 @@ function App() {
                 Home
               </Link>
             </li>
-            <li className="px-4">
+            <li className="px-4 text-2xl font-bold">
               <Link
                 to="/ShoppingPage"
                 className="text-black hover:text-gray-200 transition duration-300"
@@ -106,6 +106,7 @@ function App() {
                   alt=""
                   className="ml-4 h-6 w-6"
                 />
+                <div className="cartNumber ">{itemNumber}</div>
               </Link>
             </li>
           </ul>

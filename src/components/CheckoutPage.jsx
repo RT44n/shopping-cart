@@ -14,7 +14,7 @@ const CheckoutPage = () => {
           <p className="text-4xl">Your cart is empty!</p>
           <p>
             Your Shopping Cart lives to serve. You can freely place and remove
-            items, move them to Buy Later. Continue shopping on the
+            items, move them to Buy Later. Continue shopping on the -
             <Link className="text-blue-600" to="/ShoppingPage">
               shopping page.
             </Link>
@@ -57,6 +57,7 @@ const CheckoutPage = () => {
               ))}
             </ul>
           </div>
+
           <div className="mt-4">
             <h2 className="text-xl font-semibold mb-2">Total</h2>
             <p className="text-gray-700">Total Price: ${calculateTotal()}</p>
